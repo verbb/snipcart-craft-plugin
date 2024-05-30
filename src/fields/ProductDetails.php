@@ -56,6 +56,14 @@ class ProductDetails extends Field
     // Public Methods
     // =========================================================================
 
+    public function __construct($config = [])
+    {
+        // Config normalization
+        unset($config['columnType']);
+
+        parent::__construct($config);
+    }
+
     public function normalizeValue(mixed $value, ElementInterface $element = null): mixed
     {
         return Snipcart::$plugin->getFields()->getProductDetailsField($this, $element, $value);
