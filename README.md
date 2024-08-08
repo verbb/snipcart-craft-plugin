@@ -1,5 +1,5 @@
-# Snipcart plugin for Craft CMS
-<img width="500" src="https://verbb.imgix.net/plugins/snipcart/snipcart-social-card.png?v=1">
+<p align="center"><img src="https://verbb.imgix.net/plugins/snipcart/snipcart-icon.svg" width="100" height="100" alt="Snipcart icon"></p>
+<h1 align="center">Snipcart for Craft CMS</h1>
 
 Quickly turn a Craft CMS website into a fully functioning store.
 
@@ -23,5 +23,5 @@ Get in touch with us via the [Snipcart Support page](https://verbb.io/craft-plug
 <h2></h2>
 
 <a href="https://verbb.io" target="_blank">
-    <img width="100" src="https://verbb.io/assets/img/verbb-pill.svg">
+    <img width="101" height="33" src="https://verbb.io/assets/img/verbb-pill.svg" alt="Verbb">
 </a>

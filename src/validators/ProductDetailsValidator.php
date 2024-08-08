@@ -27,7 +27,9 @@ class ProductDetailsValidator extends Validator
         // and it doesn't like the value being passed to it
         // so we remove the comma from the value
         // there's definitely a better way to do this ¯\_(ツ)_/¯
-        $value['price'] = str_replace(',', '', $value['price']);
+        if (is_string($value['price'])) {
+            $value['price'] = str_replace(',', '', $value['price']);
+        }
 
         // SKU field validations 
         // test for empty SKU
