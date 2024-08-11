@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.6 - 2024-08-11
+
+### Fixed
+- Fix an error with field validation not working correctly when not providing a price value.
+
 ## 2.1.5 - 2024-03-01
 
 ### Fixed
