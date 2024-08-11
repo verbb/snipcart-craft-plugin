@@ -4,6 +4,7 @@
 
 ### Fixed
 - Fix an error with field validation not working correctly when not providing a price value.
+- Fix an error related to `columnType` for the Product Details field.
 
 ## 3.0.0 - 2024-05-13
 
