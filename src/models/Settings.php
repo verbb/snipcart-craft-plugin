@@ -166,7 +166,20 @@ class Settings extends Model
 
     public function beforeValidate(): bool
     {
-        $this->getNotificationEmailsFromTable();
+        // Normalize content before saving
+        if (is_array($this->notificationEmails)) {
+            $arrayFromTableData = [];
+
+            foreach ($this->notificationEmails as $notificationEmail) {
+                $email = array_values($notificationEmail)[0] ?? '';
+
+                if ($email) {
+                    $arrayFromTableData[] = trim($email);
+                }
+            }
+
+            $this->notificationEmails = $arrayFromTableData;
+        }
 
         return parent::beforeValidate();
     }
@@ -180,9 +193,7 @@ class Settings extends Model
         }
 
         foreach ($this->notificationEmails as $notificationEmail) {
-            $rows[] = [
-                0 => $notificationEmail,
-            ];
+            $rows[]['email'] = $notificationEmail;
         }
 
         return $rows;
@@ -260,19 +271,6 @@ class Settings extends Model
 
     // Private Methods
     // =========================================================================
-
-    private function getNotificationEmailsFromTable(): void
-    {
-        if (is_array($this->notificationEmails) && count($this->notificationEmails) && is_array($this->notificationEmails[0])) {
-            $arrayFromTableData = [];
-
-            foreach ($this->notificationEmails as $notificationEmail) {
-                $arrayFromTableData[] = trim($notificationEmail[0]);
-            }
-
-            $this->notificationEmails = $arrayFromTableData;
-        }
-    }
 
     private function hasEnabledProviders(): bool
     {
